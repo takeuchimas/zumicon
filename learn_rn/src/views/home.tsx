@@ -1,48 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
-import { Button } from "react-native-elements";
+import { Button, Icon } from "react-native-elements";
 
 export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
+      <Icon type="font-awesome" name="home"></Icon>
       <Text>Welcome! zmap member! let's learn have fun!</Text>
       <Button
-        title="isa"
+        title="Isa"
         type="outline"
         containerStyle={styles.button_container}
         buttonStyle={styles.button}
         onPress={() => navigation.navigate("Isa")}
       />
       <Button
-        title="izumi"
+        title="Izumi"
         type="solid"
         containerStyle={styles.button_container}
         buttonStyle={styles.button}
         onPress={() => navigation.navigate("Izumi")}
       />
       <Button
-        title="kataoka"
+        title="Kataoka"
         type="outline"
         containerStyle={styles.button_container}
         buttonStyle={styles.button}
         onPress={() => navigation.navigate("Kataoka")}
       />
       <Button
-        title="nakazato"
+        title="Nakazato"
         type="solid"
         containerStyle={styles.button_container}
         buttonStyle={styles.button}
         onPress={() => navigation.navigate("Nakazato")}
       />
       <Button
-        title="takeuchi"
+        title="Takeuchi"
         type="outline"
         containerStyle={styles.button_container}
         buttonStyle={styles.button}
         onPress={() => navigation.navigate("Takeuchi")}
       />
       <Button
-        title="tanaka"
+        title="Tanaka"
         type="solid"
         containerStyle={styles.button_container}
         buttonStyle={styles.button}
