@@ -6,6 +6,7 @@ export default function Izumi() {
     <SafeAreaView style={styles.container}>
       <View>
         <Text>Izumi</Text>
+        <Text>AAAA</Text>
       </View>
     </SafeAreaView>
   );
