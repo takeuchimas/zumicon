@@ -5,6 +5,8 @@ import Isa from "./src/views/isa/index";
 import Izumi from "./src/views/izumi/index";
 import Kataoka from "./src/views/kataoka/index";
 import Nakazato from "./src/views/nakazato/index";
+import SubPage_1 from "./src/views/nakazato/subPage_1";
+import SubPage_2 from "./src/views/nakazato/subPage_2";
 import Takeuchi from "./src/views/takeuchi/index";
 import Tanaka from "./src/views/tanaka/index";
 import { Button } from "react-native-elements";
@@ -17,12 +19,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+        {/* Home */}
         <Stack.Screen name="Home" component={Home} />
+        {/* Isa */}
         <Stack.Screen name="Isa" component={Isa} />
+        {/* Izumi */}
         <Stack.Screen name="Izumi" component={Izumi} />
+        {/* Kataoka */}
         <Stack.Screen name="Kataoka" component={Kataoka} />
+        {/* Nakazato */}
         <Stack.Screen name="Nakazato" component={Nakazato} />
+        <Stack.Screen name="SubPage1" component={SubPage_1} />
+        <Stack.Screen name="SubPage2" component={SubPage_2} />
+        {/* Takeuchi */}
         <Stack.Screen name="Takeuchi" component={Takeuchi} />
+        {/* Tanaka */}
         <Stack.Screen name="Tanaka" component={Tanaka} />
       </Stack.Navigator>
     </NavigationContainer>
