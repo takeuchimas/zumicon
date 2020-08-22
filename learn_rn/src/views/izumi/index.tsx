@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, SafeAreaView, StyleSheet, Button } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { Button, Icon } from "react-native-elements";
 
 export default function Izumi({ navigation }: any) {
   return (
@@ -8,6 +9,9 @@ export default function Izumi({ navigation }: any) {
         <Text>Izumi</Text>
         <Button
           title="Three"
+          type="outline"
+          containerStyle={styles.button_container}
+          buttonStyle={styles.button}
           onPress={() => navigation.navigate("Three")}
         />
       </View>
@@ -21,5 +25,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  button_container: {
+    margin: 12,
+  },
+  button: {
+    width: 200,
+    padding: 12,
   },
 });
