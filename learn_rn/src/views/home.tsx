@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Button, Icon } from "react-native-elements";
 
-export default function Home({ navigation }: typeof any) {
+export default function Home({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <Icon type="font-awesome" name="home"></Icon>
