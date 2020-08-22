@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Home from "./src/views/home";
 import Isa from "./src/views/isa/index";
-import Izumi from "./src/views/izumi/index";
-import Three_Screen from "./src/views/izumi/index";
+import Izumi from "./src/views/izumi/";
+import Three from "./src/views/izumi/three";
 import Kataoka from "./src/views/kataoka/index";
 import Nakazato from "./src/views/nakazato/index";
 import SubPage_1 from "./src/views/nakazato/subPage_1";
@@ -27,7 +27,7 @@ export default function App() {
         {/* Izumi */}
         <Stack.Screen name="Izumi" component={Izumi} />
         {/* 3Dライブラリ */}
-        <Stack.Screen name="Three" component={Three_Screen} />
+        <Stack.Screen name="Three" component={Three} />
         {/* Kataoka */}
         <Stack.Screen name="Kataoka" component={Kataoka} />
         {/* Nakazato */}
