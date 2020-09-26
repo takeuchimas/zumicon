@@ -2,25 +2,22 @@ import React, { useState, useEffect } from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Button, Icon } from "react-native-elements";
 
-export default function Izumi({ navigation }: any) {
+export default function Redux({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text>Izumi</Text>
+        <Text>ReduX Test</Text>
         <Button
-          title="Three"
+          title="Login"
           type="outline"
           containerStyle={styles.button_container}
           buttonStyle={styles.button}
-          onPress={() => navigation.navigate("Three")}
+          onPress={() => { }}
         />
-        <Button
-          title="ReduX"
-          type="outline"
-          containerStyle={styles.button_container}
-          buttonStyle={styles.button}
-          onPress={() => navigation.navigate("Redux")}
-        />
+        <Text>id: </Text>
+        <Text>name: </Text>
+        <Text>age: </Text>
+        <Text>state: </Text>
       </View>
     </SafeAreaView>
   );
