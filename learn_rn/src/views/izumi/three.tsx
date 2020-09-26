@@ -4,14 +4,20 @@ import { GLView, ExpoWebGLRenderingContext } from 'expo-gl';
 import { Asset } from 'expo-asset';
 import * as THREE from "three";
 import ExpoTHREE from 'expo-three';
+import { countState } from "../../atom/index";
+import { useRecoilState } from "recoil";
 
 export default function Three({ navigation }: any) {
+  const [count, setCount] = useRecoilState(countState);
   let three = new ThreeRenderer();
   return (
-    <GLView
-      style={{ flex: 1 }}
-      onContextCreate={three.onGLContextCreate}
-    />
+    <>
+      <Text>{count}</Text>
+      <GLView
+        style={{ flex: 1 }}
+        onContextCreate={three.onGLContextCreate}
+      />
+    </>
   );
 }
 

@@ -13,33 +13,36 @@ import Tanaka from "./src/views/tanaka/index";
 import { Button } from "react-native-elements";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { RecoilRoot } from 'recoil';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        {/* Home */}
-        <Stack.Screen name="Home" component={Home} />
-        {/* Isa */}
-        <Stack.Screen name="Isa" component={Isa} />
-        {/* Izumi */}
-        <Stack.Screen name="Izumi" component={Izumi} />
-        {/* 3Dライブラリ */}
-        <Stack.Screen name="Three" component={Three} />
-        {/* Kataoka */}
-        <Stack.Screen name="Kataoka" component={Kataoka} />
-        {/* Nakazato */}
-        <Stack.Screen name="Nakazato" component={Nakazato} />
-        <Stack.Screen name="SubPage1" component={SubPage_1} />
-        <Stack.Screen name="SubPage2" component={SubPage_2} />
-        {/* Takeuchi */}
-        <Stack.Screen name="Takeuchi" component={Takeuchi} />
-        {/* Tanaka */}
-        <Stack.Screen name="Tanaka" component={Tanaka} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <RecoilRoot>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          {/* Home */}
+          <Stack.Screen name="Home" component={Home} />
+          {/* Isa */}
+          <Stack.Screen name="Isa" component={Isa} />
+          {/* Izumi */}
+          <Stack.Screen name="Izumi" component={Izumi} />
+          {/* 3Dライブラリ */}
+          <Stack.Screen name="Three" component={Three} />
+          {/* Kataoka */}
+          <Stack.Screen name="Kataoka" component={Kataoka} />
+          {/* Nakazato */}
+          <Stack.Screen name="Nakazato" component={Nakazato} />
+          <Stack.Screen name="SubPage1" component={SubPage_1} />
+          <Stack.Screen name="SubPage2" component={SubPage_2} />
+          {/* Takeuchi */}
+          <Stack.Screen name="Takeuchi" component={Takeuchi} />
+          {/* Tanaka */}
+          <Stack.Screen name="Tanaka" component={Tanaka} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </RecoilRoot>
   );
 }
 
