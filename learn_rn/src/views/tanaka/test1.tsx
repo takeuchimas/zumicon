@@ -4,27 +4,9 @@ import { Button, Icon } from "react-native-elements";
 import * as LocalAuthentication from 'expo-local-authentication';
 // recoilで追加
 // atomフォルダにある
-import { countState } from "../../atom/index";
+import { tanakaState } from "../../atom/index";
 import { useRecoilState } from "recoil";
-
-// export default function Test1(){
-//     let test1 = new Test1Renderer();
-
-//     test1.func1();
-// }
-
-// class Test1Renderer{
-
-//     func1(){
-//         return(
-//             <SafeAreaView>
-//                 <View>
-//                     <Text>テストページ</Text>
-//                 </View>
-//             </SafeAreaView>
-//         )
-//     }
-// }
+import { GreetingRender, TitleRender, ChangeTanakaState, getTanakaState } from "./test2";
 
 class testClass {
 
@@ -48,8 +30,6 @@ class testClass {
 // 表示するページ
 export default function Test1({ navigation }: any) {
 
-  const [count, setCount] = useRecoilState(countState);
-
   let tClass = new testClass('テストページ', 20);
 
   // この中身を表示
@@ -57,40 +37,14 @@ export default function Test1({ navigation }: any) {
     <SafeAreaView>
       <View>
         {/* タイトル */}
-        <Text
-          style={[styles.text_center, styles.title_text]}
-        >
-          {tClass.title}
-        </Text>
+        <TitleRender text={'ここは' + tClass.title + 'です'} />
         {/* 挨拶テキスト */}
-        <Text
-          style={[styles.text_center, styles.greeting_text]}
-        >
-          私の年齢は{count}歳です
-        </Text>
+        <GreetingRender text={'【' + getTanakaState() + '】'} />
+        <GreetingRender text={'私は' + tClass.getAge() + '歳です'} />
+        <ChangeTanakaState buttonTitle='田中進化' param={getTanakaState() + '!'} />
+        <ChangeTanakaState buttonTitle='田中退化' param={'田中'} />
       </View>
     </SafeAreaView>
   );
 }
 
-// CSS
-const styles = StyleSheet.create({
-
-  text_center: {
-    fontSize: 30,
-    textAlign: "center",
-    marginTop: 10,
-  },
-
-  title_text: {
-    fontSize: 50,
-    marginTop: 50,
-    // paddingLeft: 120,
-  },
-
-  greeting_text: {
-    fontSize: 20,
-    marginTop: 30,
-    marginBottom: 20,
-  }
-});

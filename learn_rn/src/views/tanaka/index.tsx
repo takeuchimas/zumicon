@@ -3,6 +3,9 @@ import { View, Text, SafeAreaView, StyleSheet, Alert } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import * as LocalAuthentication from 'expo-local-authentication';
 
+import { GreetingRender, getTanakaState } from './test2';
+
+
 // 顔・指紋認証ができるかをアラートで表示
 let checkDeviceForHardware = async () => {
   // ライブラリの関数：デバイスで顔・指紋認証が使用できるかの判定
@@ -37,14 +40,15 @@ let handleAuthentication = async () => {
 };
 
 // 現在表示されているもの
-export default function Tanaka({navigation}:any) {
+export default function Tanaka({ navigation }: any) {
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
 
         {/* デバイスが指紋認証に対応しているかどうか */}
-        <Text>Tanaka</Text>
-        <Button 
+        <GreetingRender text={'【' + getTanakaState() + '】'} />
+        <Button
           title="デバイスチェック"
           onPress={checkDeviceForHardware}
           type="outline"
@@ -53,7 +57,7 @@ export default function Tanaka({navigation}:any) {
         />
 
         {/* 指紋認証を実行する */}
-        <Button 
+        <Button
           title="認証実行"
           onPress={handleAuthentication}
           type="outline"
@@ -62,12 +66,12 @@ export default function Tanaka({navigation}:any) {
         />
 
         {/* test1画面に遷移する */}
-        <Button 
-          title="テスト1画面"
+        <Button
+          title="田中の状態を変更"
           type="outline"
           containerStyle={styles.button_container}
           buttonStyle={styles.button}
-          onPress={()=>navigation.navigate("Test1")}
+          onPress={() => navigation.navigate("Test1")}
         />
 
       </View>
