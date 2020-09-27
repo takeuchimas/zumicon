@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import * as LocalAuthentication from 'expo-local-authentication';
+// recoilで追加
+// atomフォルダにある
+import { countState } from "../../atom/index";
+import { useRecoilState } from "recoil";
 
 // export default function Test1(){
 //     let test1 = new Test1Renderer();
@@ -44,6 +48,8 @@ class testClass {
 // 表示するページ
 export default function Test1({ navigation }: any) {
 
+  const [count, setCount] = useRecoilState(countState);
+
   let tClass = new testClass('テストページ', 20);
 
   // この中身を表示
@@ -60,11 +66,8 @@ export default function Test1({ navigation }: any) {
         <Text
           style={[styles.text_center, styles.greeting_text]}
         >
-          私の年齢は{tClass.getAge()}歳です
+          私の年齢は{count}歳です
         </Text>
-
-
-
       </View>
     </SafeAreaView>
   );
