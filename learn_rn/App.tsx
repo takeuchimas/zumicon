@@ -10,6 +10,7 @@ import SubPage_1 from "./src/views/nakazato/subPage_1";
 import SubPage_2 from "./src/views/nakazato/subPage_2";
 import Takeuchi from "./src/views/takeuchi/index";
 import Tanaka from "./src/views/tanaka/index";
+import Tanaka_test1 from "./src/views/tanaka/test1";
 import { Button } from "react-native-elements";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -40,6 +41,7 @@ export default function App() {
           <Stack.Screen name="Takeuchi" component={Takeuchi} />
           {/* Tanaka */}
           <Stack.Screen name="Tanaka" component={Tanaka} />
+          <Stack.Screen name="Test1" component={Tanaka_test1} />
         </Stack.Navigator>
       </NavigationContainer>
     </RecoilRoot>

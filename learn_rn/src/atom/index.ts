@@ -8,3 +8,8 @@ export const countState = atom({
   key: 'sample/count',
   default: 0
 });
+
+export const tanakaState = atom({
+  key: 'tanakaState',
+  default: '田中'
+});
