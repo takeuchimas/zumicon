@@ -13,3 +13,9 @@ export const tanakaState = atom({
   key: 'tanakaState',
   default: '田中'
 });
+
+// APIテストデータ
+export const testApiState = atom({
+  key: 'api/test',
+  default: ''
+});
