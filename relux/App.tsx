@@ -1,20 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Home from "./src/views/home";
-import Isa from "./src/views/isa/index";
-import Izumi from "./src/views/izumi/";
-import Three from "./src/views/izumi/three";
-import Kataoka from "./src/views/kataoka/index";
-import Nakazato from "./src/views/nakazato/index";
-import SubPage_1 from "./src/views/nakazato/subPage_1";
-import SubPage_2 from "./src/views/nakazato/subPage_2";
-import Takeuchi from "./src/views/takeuchi/index";
-import Tanaka from "./src/views/tanaka/index";
-import Tanaka_test1 from "./src/views/tanaka/test1";
+import Top from "./src/views/top";
+import Chat from "./src/views/_spajam/chat/chat";
+import Home from "./src/views/_spajam/home/home";
+import User from "./src/views/_spajam/management/user";
+import Select from "./src/views/_spajam/select/select";
+import CreateSelect from "./src/views/_spajam/select/createSelect";
+import Test from "./src/views/_spajam/sample/test";
+import Api from "./src/views/_spajam/api/api";
 import { Button } from "react-native-elements";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot } from "recoil";
 
 const Stack = createStackNavigator();
 
@@ -22,26 +19,33 @@ export default function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Test">
           {/* Home */}
+          <Stack.Screen name="Test" component={Test} />
+          <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Select" component={Select} />
+          <Stack.Screen name="CreateSelect" component={CreateSelect} />
+          <Stack.Screen name="User" component={User} />
+          <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="Api" component={Api} />
           {/* Isa */}
-          <Stack.Screen name="Isa" component={Isa} />
+          {/* <Stack.Screen name="Isa" component={Isa} /> */}
           {/* Izumi */}
-          <Stack.Screen name="Izumi" component={Izumi} />
+          {/* <Stack.Screen name="Izumi" component={Izumi} /> */}
           {/* 3Dライブラリ */}
-          <Stack.Screen name="Three" component={Three} />
+          {/* <Stack.Screen name="Three" component={Three} /> */}
           {/* Kataoka */}
-          <Stack.Screen name="Kataoka" component={Kataoka} />
+          {/* <Stack.Screen name="Kataoka" component={Kataoka} /> */}
           {/* Nakazato */}
-          <Stack.Screen name="Nakazato" component={Nakazato} />
-          <Stack.Screen name="SubPage1" component={SubPage_1} />
-          <Stack.Screen name="SubPage2" component={SubPage_2} />
+          {/* <Stack.Screen name="Nakazato" component={Nakazato} /> */}
+          {/* <Stack.Screen name="SubPage1" component={SubPage_1} /> */}
+          {/* <Stack.Screen name="SubPage2" component={SubPage_2} /> */}
           {/* Takeuchi */}
-          <Stack.Screen name="Takeuchi" component={Takeuchi} />
+          {/* <Stack.Screen name="Takeuchi" component={Takeuchi} /> */}
           {/* Tanaka */}
-          <Stack.Screen name="Tanaka" component={Tanaka} />
-          <Stack.Screen name="Test1" component={Tanaka_test1} />
+          {/* <Stack.Screen name="Tanaka" component={Tanaka} /> */}
+          {/* <Stack.Screen name="Test1" component={Tanaka_test1} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </RecoilRoot>
