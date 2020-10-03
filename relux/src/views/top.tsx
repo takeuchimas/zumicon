@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, SafeAreaView, StyleSheet, Dimensions } from "react-native";
+import { Text, Button, Input } from "react-native-elements";
+
+var { width, height, scale } = Dimensions.get("window");
 
 export default function Top() {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text>Top</Text>
-      </View>
+      <Text h3 style={{ marginBottom: 50 }}>
+        (仮)新ZMAP
+      </Text>
+      <Input
+        label="ユーザー名"
+        containerStyle={{ width: width - 100 }}
+        placeholder="入力してください。"
+      ></Input>
+      <Button type="outline" title={"スタート"}></Button>
     </SafeAreaView>
   );
 }
@@ -14,7 +23,7 @@ export default function Top() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#CCFFCC",
     alignItems: "center",
     justifyContent: "center",
   },
