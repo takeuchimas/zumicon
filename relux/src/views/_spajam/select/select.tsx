@@ -62,7 +62,7 @@ export default function Select({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#80BD9E",
     alignItems: "center",
     justifyContent: "center",
   },
