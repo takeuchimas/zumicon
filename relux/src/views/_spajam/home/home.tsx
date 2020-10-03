@@ -8,25 +8,51 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { Text, Icon, ListItem } from "react-native-elements";
+import { Text, Icon, ListItem, SearchBar } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 
 import { useRecoilState } from "recoil";
 import { userApiState, tagApiState } from "../../../atom/index";
-import API, { } from '../../../api';
+import API from "../../../api";
 
 var { width, height, scale } = Dimensions.get("window");
 
 export default function Home({ navigation }: any) {
   const [user, setUser] = useRecoilState(userApiState);
+  const [canSearch, setCanSearch] = useState(false);
+  const [inputSearch, setInputSearch] = useState("");
+
   const api = new API();
   // const oData = user;
   const rData = user.tag_history;
 
+  const handleSearch = () => {
+    console.log("search");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text h3 style={{ padding: 12 }}>
+      <Text h3 style={{ padding: 8 }}>
         ホーム
+      </Text>
+      {canSearch ? (
+        <SearchBar
+          round
+          placeholder="検索キーワード..."
+          containerStyle={{ width: "100%" }}
+          inputContainerStyle={{ width: "100%" }}
+          rightIconContainerStyle={{}}
+          lightTheme={true}
+          value={inputSearch}
+          onChangeText={handleSearch}
+          onClear={() => setCanSearch(!canSearch)}
+          onCancel={() => setCanSearch(!canSearch)}
+        />
+      ) : (
+        <View />
+      )}
+      <Text h4 style={{ padding: 12 }}>
+        おすすめ
       </Text>
       <FlatList
         data={rData}
@@ -56,6 +82,47 @@ export default function Home({ navigation }: any) {
         )}
         keyExtractor={(item) => item}
       ></FlatList>
+      <Text h4 style={{ padding: 12 }}>
+        履歴
+      </Text>
+      <FlatList
+        data={rData}
+        renderItem={({ item }) => (
+          <Animatable.View
+            key={item}
+            animation="bounceIn"
+            style={{
+              width: width,
+              height: height / 16,
+              paddingTop: 4,
+              paddingLeft: 12,
+              marginBottom: 0.8,
+              backgroundColor: "#00A400",
+              borderBottomWidth: 1,
+              borderBottomColor: "gray",
+            }}
+          >
+            <Text
+              h4
+              style={{ color: "#EEE" }}
+              onPress={() => navigation.navigate("Select")}
+            >
+              {item}
+            </Text>
+          </Animatable.View>
+        )}
+        keyExtractor={(item) => item}
+      ></FlatList>
+      <View style={styles.searchIcon}>
+        <Icon
+          type="font-awesome"
+          name="search"
+          color="#00FF00"
+          style={{ opacity: 0.5 }}
+          size={70}
+          onPress={() => setCanSearch(!canSearch)}
+        />
+      </View>
       <View style={styles.addIcon}>
         <Icon
           type="font-awesome"
@@ -99,5 +166,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     right: 0,
+  },
+  searchIcon: {
+    margin: 10,
+    position: "absolute",
+    bottom: 0,
+    left: 0,
   },
 });
