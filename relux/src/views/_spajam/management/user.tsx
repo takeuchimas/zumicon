@@ -12,6 +12,7 @@ export default function User() {
       </Text>
       <Input
         label="ユーザー名"
+        disabled
         containerStyle={{ width: width - 100 }}
         placeholder="表示名"
       ></Input>
