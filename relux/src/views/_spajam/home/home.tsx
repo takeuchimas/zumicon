@@ -11,10 +11,17 @@ import {
 import { Text, Icon, ListItem } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 
+import { useRecoilState } from "recoil";
+import { userApiState, tagApiState } from "../../../atom/index";
+import API, { } from '../../../api';
+
 var { width, height, scale } = Dimensions.get("window");
 
 export default function Home({ navigation }: any) {
-  const sampleData = ["#ねこ", "#たき火", "#ヘビ"];
+  const [user, setUser] = useRecoilState(userApiState);
+  const api = new API();
+  // const oData = user;
+  const rData = user.tag_history;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +29,7 @@ export default function Home({ navigation }: any) {
         ホーム
       </Text>
       <FlatList
-        data={sampleData}
+        data={rData}
         renderItem={({ item }) => (
           <Animatable.View
             key={item}
