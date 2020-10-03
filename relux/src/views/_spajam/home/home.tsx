@@ -1,51 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import {
+  Alert,
+  Dimensions,
+  View,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import { Text, ListItem } from "react-native-elements";
+import * as Animatable from "react-native-animatable";
 
-type TextProps = {
-  text: string;
-}
-
-export const TitleRender: React.FC<TextProps> = ({ text }) => {
-  return (
-    <Text
-      style={[styles.text_template, styles.title]}
-    >
-      {text}
-    </Text>
-  );
-}
-
-export const ItemBoxRender: React.FC<TextProps> = ({ text }) => {
-  return (
-    <Text
-      style={[styles.text_template, styles.item_box]}
-    >
-      {text}
-    </Text>
-  );
-}
-
-export const ItemRender: React.FC<TextProps> = ({ text }) => {
-  return (
-    <Text
-      style={[styles.text_template, styles.item]}
-    >
-      {text}
-    </Text>
-  );
-}
+var { width, height, scale } = Dimensions.get("window");
 
 export default function Home() {
+  const sampleData = ["#aa", "#bb"];
+
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <TitleRender text='HOME' />
-
-        <ItemBoxRender text='おすすめ' />
-
-        <ItemRender text='履歴' />
-
-      </View>
+      <Text h3>Home</Text>
+      <FlatList
+        data={sampleData}
+        renderItem={({ item }) => (
+          <Animatable.View
+            animation="fadeIn"
+            style={{
+              width: width,
+              height: height / 24,
+              backgroundColor: "gray",
+            }}
+          >
+            <Text h4 onPress={() => Alert.alert("hello")}>
+              {item}
+            </Text>
+          </Animatable.View>
+        )}
+      ></FlatList>
     </SafeAreaView>
   );
 }
@@ -64,7 +54,7 @@ const styles = StyleSheet.create({
   // 画面タイトル
   title: {
     fontSize: 40,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   // 項目のタイトル
   item_box: {
@@ -73,6 +63,5 @@ const styles = StyleSheet.create({
   // 項目
   item: {
     fontSize: 15,
-  }
-
+  },
 });

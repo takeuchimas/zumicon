@@ -21,13 +21,15 @@ export default function App() {
     <RecoilRoot>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Test">
-          {/* Home */}
           <Stack.Screen name="Test" component={Test} />
           <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Select" component={Select} />
           <Stack.Screen name="CreateSelect" component={CreateSelect} />
-          <Stack.Screen name="CreateSelect_settings" component={CreateSelect_settings} />
+          <Stack.Screen
+            name="CreateSelect_settings"
+            component={CreateSelect_settings}
+          />
           <Stack.Screen name="User" component={User} />
           <Stack.Screen name="Chat" component={Chat} />
           <Stack.Screen name="Api" component={Api} />
