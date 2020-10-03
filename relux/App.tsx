@@ -22,7 +22,7 @@ export default function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Test" headerMode="none">
+        <Stack.Navigator initialRouteName="Top" headerMode="none">
           <Stack.Screen name="Test" component={Test} />
           <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="Home" component={Home} />
