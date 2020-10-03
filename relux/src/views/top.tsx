@@ -7,20 +7,24 @@ var { width, height, scale } = Dimensions.get("window");
 export default function Top({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
-      <Text h3 style={{ marginBottom: 50, color: "gray" }}>
-        (仮)新ZMAP
-      </Text>
-      <Input
-        label="ユーザー名"
-        labelStyle={{ color: "gray" }}
-        containerStyle={{ width: width - 100 }}
-        placeholder="入力してください。"
-      ></Input>
-      <Button
-        type="outline"
-        title={"スタート"}
-        onPress={() => navigation.navigate("Home")}
-      ></Button>
+      <View style={{ marginTop: 100, alignItems: "center" }}>
+        <Text h3 style={{ marginBottom: 50, color: "gray" }}>
+          (仮)新ZMAP
+        </Text>
+        <Input
+          label="ユーザー名"
+          labelStyle={{ color: "gray" }}
+          containerStyle={{ width: width - 100 }}
+          placeholder="入力してください。"
+        ></Input>
+        <Button
+          type="outline"
+          title={"スタート"}
+          titleStyle={{ color: "#EEE" }}
+          buttonStyle={{ backgroundColor: "#00A400" }}
+          onPress={() => navigation.navigate("Home")}
+        ></Button>
+      </View>
     </SafeAreaView>
   );
 }
@@ -28,8 +32,6 @@ export default function Top({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#80BD9E",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#BDFFB6",
   },
 });

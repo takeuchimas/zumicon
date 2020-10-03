@@ -20,7 +20,7 @@ export default function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Test">
+        <Stack.Navigator initialRouteName="Test" headerMode="none">
           <Stack.Screen name="Test" component={Test} />
           <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="Home" component={Home} />
@@ -33,23 +33,6 @@ export default function App() {
           <Stack.Screen name="User" component={User} />
           <Stack.Screen name="Chat" component={Chat} />
           <Stack.Screen name="Api" component={Api} />
-          {/* Isa */}
-          {/* <Stack.Screen name="Isa" component={Isa} /> */}
-          {/* Izumi */}
-          {/* <Stack.Screen name="Izumi" component={Izumi} /> */}
-          {/* 3Dライブラリ */}
-          {/* <Stack.Screen name="Three" component={Three} /> */}
-          {/* Kataoka */}
-          {/* <Stack.Screen name="Kataoka" component={Kataoka} /> */}
-          {/* Nakazato */}
-          {/* <Stack.Screen name="Nakazato" component={Nakazato} /> */}
-          {/* <Stack.Screen name="SubPage1" component={SubPage_1} /> */}
-          {/* <Stack.Screen name="SubPage2" component={SubPage_2} /> */}
-          {/* Takeuchi */}
-          {/* <Stack.Screen name="Takeuchi" component={Takeuchi} /> */}
-          {/* Tanaka */}
-          {/* <Stack.Screen name="Tanaka" component={Tanaka} /> */}
-          {/* <Stack.Screen name="Test1" component={Tanaka_test1} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </RecoilRoot>

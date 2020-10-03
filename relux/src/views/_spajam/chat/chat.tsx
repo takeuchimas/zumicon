@@ -62,6 +62,6 @@ export default function Chat() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#80BD9E",
+    backgroundColor: "#BDFFB6",
   },
 });

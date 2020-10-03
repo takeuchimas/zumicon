@@ -20,7 +20,7 @@ export default function Select({ navigation }: any) {
 
   useEffect(() => {
     (async () => {
-      const tagData = await api.getTagData("たき火");
+      const tagData = await api.getTagData("ねこ");
       setTag(tagData);
     })();
   }, []);
@@ -30,25 +30,32 @@ export default function Select({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text h4 style={{ marginLeft: 12 }}>
+        <Text h4 style={{ marginLeft: 8 }}>
           あなたの好みを選択してください。
         </Text>
-        <Text h4 style={{ marginLeft: 12 }}>
+        <Text h4 style={{ marginLeft: 8 }}>
           [{tag.tag_name}]
         </Text>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "column" }}>
           {tag.small_tag.map((tag, index) => {
             if (tag.tag_info.images_url) {
               return (
                 <TouchableOpacity
                   key={index}
-                  style={{ marginLeft: 12 }}
+                  style={{
+                    marginLeft: 8,
+                    marginBottom: 4,
+                    flexDirection: "row",
+                  }}
                   onPress={() => navigation.navigate("Chat")}
                 >
                   <Image
                     style={styles.stretch}
                     source={{ uri: String(tag.tag_info.images_url) }}
                   />
+                  <Text style={{ marginTop: 70, marginLeft: 12 }}>
+                    {tag.tag_name}
+                  </Text>
                 </TouchableOpacity>
               );
             }
@@ -62,13 +69,15 @@ export default function Select({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#80BD9E",
+    backgroundColor: "#BDFFB6",
     alignItems: "center",
     justifyContent: "center",
   },
   stretch: {
-    width: (width - 30) / 3,
-    height: 100,
+    // width: (width - 40) / 3,
+    // height: 120,
+    width: 160,
+    height: 160,
     resizeMode: "stretch",
   },
 });

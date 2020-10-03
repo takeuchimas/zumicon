@@ -8,28 +8,18 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { Text, ListItem } from "react-native-elements";
+import { Text, Icon, ListItem } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 
 var { width, height, scale } = Dimensions.get("window");
 
 export default function Home({ navigation }: any) {
-  const sampleData = [
-    "#aa",
-    "#bb",
-    "#cc",
-    "#dd",
-    "#ee",
-    "#bbf",
-    "#bbaf",
-    "#bbb",
-    "#bbga",
-  ];
+  const sampleData = ["#ねこ", "#たき火", "#ヘビ"];
 
   return (
     <SafeAreaView style={styles.container}>
       <Text h3 style={{ padding: 12 }}>
-        Home
+        ホーム
       </Text>
       <FlatList
         data={sampleData}
@@ -42,18 +32,33 @@ export default function Home({ navigation }: any) {
               height: height / 16,
               paddingTop: 4,
               paddingLeft: 12,
-              backgroundColor: "#80BD90",
+              marginBottom: 0.8,
+              backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
             }}
           >
-            <Text h4 onPress={() => navigation.navigate("Select")}>
+            <Text
+              h4
+              style={{ color: "#EEE" }}
+              onPress={() => navigation.navigate("Select")}
+            >
               {item}
             </Text>
           </Animatable.View>
         )}
         keyExtractor={(item) => item}
       ></FlatList>
+      <View style={styles.addIcon}>
+        <Icon
+          type="font-awesome"
+          name="plus-circle"
+          color="#00FF00"
+          style={{ opacity: 0.5 }}
+          size={70}
+          onPress={() => Alert.alert("すんません！未装です！")}
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -62,7 +67,7 @@ export default function Home({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#80BD9E",
+    backgroundColor: "#BDFFB6",
     // justifyContent: "center",
   },
   text_template: {
@@ -81,5 +86,11 @@ const styles = StyleSheet.create({
   // 項目
   item: {
     fontSize: 15,
+  },
+  addIcon: {
+    margin: 10,
+    position: "absolute",
+    bottom: 0,
+    right: 0,
   },
 });
