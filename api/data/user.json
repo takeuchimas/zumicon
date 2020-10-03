@@ -1,1 +1,19 @@
-[{"user":"ズミミン","user_info":"","tag_history":["焚火","まくら","ねこ","a"],"bot":false},{"user":"たろう","user_info":"","tag_history":["焚火"],"bot":true}]
+[
+  {
+    "user": "ズミミン",
+    "user_info": "",
+    "tag_history": [
+      "小さい炎",
+      "大きい炎"
+    ],
+    "bot": false
+  },
+  {
+    "user": "たろう",
+    "user_info": "",
+    "tag_history": [
+      "青い炎"
+    ],
+    "bot": true
+  }
+]

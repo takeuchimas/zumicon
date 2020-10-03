@@ -15,6 +15,7 @@ export type UserInfoType = {
 export const UserGetURL = 'http://13.231.69.127:3000/api/v1/user';
 export const TagGetURL = 'http://13.231.69.127:3000/api/v1/tag';
 export const SpTagGetURL = 'http://13.231.69.127:3000/api/v1/spTags';
+export const SearchTagURL = 'http://13.231.69.127:3000/api/v1/tag/search';
 export const AddTagHistoryURL = 'http://13.231.69.127:3000/api/v1/user/addHistory';
 // NOTE: 何か追加するときはURLと返却値の型は一緒に定義しましょう
 
@@ -53,6 +54,14 @@ export default class {
   getTagSp = async () => {
     try {
       const response = await axios.get(`${SpTagGetURL}`);
+      return response.data;
+    } catch (e) {
+      return '';
+    }
+  }
+  searchTag = async (value: string) => {
+    try {
+      const response = await axios.get(`${SearchTagURL}?value=${value}`);
       return response.data;
     } catch (e) {
       return '';
