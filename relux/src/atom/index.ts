@@ -15,7 +15,7 @@ export const tanakaState = atom({
 });
 
 // APIテストデータ
-export const testApiState = atom({
-  key: 'api/test',
-  default: ''
+export const userApiState = atom({
+  key: 'api/user',
+  default: {}
 });
