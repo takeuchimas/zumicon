@@ -1,7 +1,13 @@
 [
   {
     "user": "ズミミン",
-    "user_info": "",
+    "user_info": {
+      "state": "自己紹介です！猫と一緒にモンスターエナジーを飲むと癒されます。",
+      "create_tag": [
+        "たき火",
+        "ねこ"
+      ]
+    },
     "tag_history": [
       "小さい炎",
       "大きい炎"
@@ -10,10 +16,28 @@
   },
   {
     "user": "たろう",
-    "user_info": "",
+    "user_info": {
+      "state": "自己紹介です！私はボットです。",
+      "create_tag": [
+        "たき火"
+      ]
+    },
     "tag_history": [
       "青い炎"
     ],
     "bot": true
+  },
+  {
+    "user": "しょう",
+    "user_info": {
+      "state": "自己紹介です！私はボットです。",
+      "create_tag": [
+        "たき火"
+      ]
+    },
+    "tag_history": [
+      "青い炎"
+    ],
+    "bot": false
   }
 ]

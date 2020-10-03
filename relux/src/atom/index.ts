@@ -6,7 +6,10 @@ import { atom } from 'recoil';
 
 export type UserInfoType = {
   user: string,
-  user_info: string,
+  user_info: {
+    state: string,
+    create_tag: string[]
+  },
   tag_history: string[],
   bot: false
 }
@@ -38,7 +41,15 @@ export const tanakaState = atom({
 // ユーザ情報
 export const userApiState = atom({
   key: 'api/user',
-  default: {}
+  default: {
+    user: '',
+    user_info: {
+      state: '',
+      create_tag: []
+    },
+    tag_history: [],
+    bot: true
+  }
 });
 
 // 親タグ一覧

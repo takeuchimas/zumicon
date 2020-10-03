@@ -6,7 +6,10 @@ import _ from 'lodash';
 
 export type UserInfoType = {
   user: string,
-  user_info: "",
+  user_info: {
+    state: string,
+    create_tag: string[]
+  },
   tag_history: string[],
   bot: false
 }
