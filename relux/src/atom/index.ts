@@ -4,6 +4,27 @@
  */
 import { atom } from 'recoil';
 
+export type UserInfoType = {
+  user: string,
+  user_info: string,
+  tag_history: string[],
+  bot: false
+}
+
+export type TagInfoType = {
+  tag_name: string,
+  tag_info: {},
+  small_tag: [
+    {
+      tag_name: string,
+      tag_info: {
+        images_url: string,
+        chat_key: string
+      }
+    }
+  ]
+}
+
 export const countState = atom({
   key: 'sample/count',
   default: 0
@@ -14,8 +35,28 @@ export const tanakaState = atom({
   default: '田中'
 });
 
-// APIテストデータ
-export const testApiState = atom({
-  key: 'api/test',
-  default: ''
+// ユーザ情報
+export const userApiState = atom({
+  key: 'api/user',
+  default: {}
+});
+
+// 親タグ一覧
+
+// 親タグ情報
+export const tagApiState = atom({
+  key: 'api/tag',
+  default: {
+    tag_name: "",
+    tag_info: {},
+    small_tag: [
+      {
+        tag_name: "",
+        tag_info: {
+          images_url: "",
+          chat_key: ""
+        }
+      }
+    ]
+  }
 });

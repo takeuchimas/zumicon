@@ -3,28 +3,33 @@
  */
 import axios from 'axios';
 
-// テスト用
-export type TestType = string;
-export const TestURL = 'http://13.231.69.127:3000/';
+// ユーザ情報
+export type UserInfoType = {
+  user: string,
+  user_info: "",
+  tag_history: string[],
+  bot: false
+}
+export const UserGetURL = 'http://13.231.69.127:3000/api/v1/user';
+export const TagGetURL = 'http://13.231.69.127:3000/api/v1/tag';
 // NOTE: 何か追加するときはURLと返却値の型は一緒に定義しましょう
 
 export default class {
-  getJSONData = async (URL: string) => {
+  getUserData = async (userId: string) => {
     try {
-      const response = await axios.get(URL);
-      // TODO: 共通のチェック処理を実装する
-      console.log(response);
-      return JSON.parse(response.data);
+      console.log(userId);
+      const response = await axios.get(`${UserGetURL}?user=${userId}`);
+      console.log(response.data);
+      return response.data;
     } catch (e) {
       console.log(e);
-      return {};
+      return '';
     }
   }
-  getStringData = async (URL: string) => {
+  getTagData = async (tag: string) => {
     try {
-      const response = await axios.get(URL);
-      // TODO: 共通のチェック処理を実装する
-      console.log(response);
+      const response = await axios.get(`${TagGetURL}?tag=${tag}`);
+      console.log(response.data);
       return response.data;
     } catch (e) {
       console.log(e);
