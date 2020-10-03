@@ -12,6 +12,7 @@ export type UserInfoType = {
 }
 export const UserGetURL = 'http://13.231.69.127:3000/api/v1/user';
 export const TagGetURL = 'http://13.231.69.127:3000/api/v1/tag';
+export const AddTagHistoryURL = 'http://13.231.69.127:3000/api/v1/user/addHistory';
 // NOTE: 何か追加するときはURLと返却値の型は一緒に定義しましょう
 
 export default class {
@@ -27,6 +28,16 @@ export default class {
     }
   }
   getTagData = async (tag: string) => {
+    try {
+      const response = await axios.get(`${TagGetURL}?tag=${tag}`);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return '';
+    }
+  }
+  addHistoryData = async (tag: string) => {
     try {
       const response = await axios.get(`${TagGetURL}?tag=${tag}`);
       console.log(response.data);
