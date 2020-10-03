@@ -10,7 +10,7 @@ import CreateSelect_settings from "./src/views/_spajam/select/createSelect_setti
 import Test from "./src/views/_spajam/sample/test";
 import Api from "./src/views/_spajam/api/api";
 import { Button } from "react-native-elements";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RecoilRoot } from "recoil";
 

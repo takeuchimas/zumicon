@@ -25,8 +25,6 @@ export default function Select({ navigation }: any) {
     })();
   }, []);
 
-  const source = { uri: "https://placeimg.com/140/140/any" };
-
   return (
     <SafeAreaView style={styles.container}>
       <View>

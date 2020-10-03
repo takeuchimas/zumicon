@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Dimensions,
+  ImageBackground,
+} from "react-native";
 import { Text, Button, Input } from "react-native-elements";
 import { useRecoilState } from "recoil";
 import { userApiState, tagApiState } from "../atom/index";
-import API, { } from '../api';
+import API from "../api";
 
 var { width, height, scale } = Dimensions.get("window");
 
 export default function Top({ navigation }: any) {
-  const [userName, setUserName] = useState('ズミミン');
+  const [userName, setUserName] = useState("ズミミン");
   const [user, setUser] = useRecoilState(userApiState);
   const api = new API();
   const _handleTextChange = (text: string) => {
     if (text) {
-      setUserName(text)
+      setUserName(text);
     } else {
-      setUserName('');
+      setUserName("");
     }
-  }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ marginTop: 100, alignItems: "center" }}>
-        <Text h3 style={{ marginBottom: 50, color: "gray" }}>
-          (仮)新ZMAP
+        <Text h1 style={{ marginBottom: 50, color: "gray" }}>
+          .Re
         </Text>
         <Input
           label="ユーザー名"
@@ -40,9 +46,8 @@ export default function Top({ navigation }: any) {
           onPress={async () => {
             const userData = await api.getUserData(userName);
             setUser(userData);
-            navigation.navigate("Home")
-          }
-          }
+            navigation.navigate("Home");
+          }}
         ></Button>
       </View>
     </SafeAreaView>
