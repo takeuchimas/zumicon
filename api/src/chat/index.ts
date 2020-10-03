@@ -1,7 +1,7 @@
 /**
  * ユーザ情報返却
  */
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import _ from 'lodash';
 
 export type ChatInfoType = {
@@ -34,5 +34,20 @@ export default class {
       return chat.chat_key === chatKey;
     });
     return results;
+  }
+  addChat = (chatKey: string, user: string, value: string) => {
+    const chatList = JSON.parse(readFileSync(this.file, 'utf-8')) as ChatDB;
+    _.each(chatList, (chat) => {
+      if (chat.chat_key === chatKey) {
+        const data = {
+          number: chat.data.chat_history.length + 1,
+          user: user,
+          data: value
+        };
+        chat.data.chat_history.push(data);
+      }
+    });
+    writeFileSync(this.file, JSON.stringify(chatList));
+    return { state: true };
   }
 }

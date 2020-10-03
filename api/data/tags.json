@@ -6,7 +6,7 @@
       {
         "tag_name": "小さい炎",
         "tag_info": {
-          "images_url": "http://13.231.69.127/zumimin/relux_data/001.png",
+          "images_url": "http://13.231.69.127/zumimin/relux_data/bonfire_small.jpg",
           "chat_key": "0001"
         }
       },
@@ -20,7 +20,7 @@
       {
         "tag_name": "大きい炎",
         "tag_info": {
-          "images_url": "http://13.231.69.127/zumimin/relux_data/003.png",
+          "images_url": "http://13.231.69.127/zumimin/relux_data/bonfire_big.jpg",
           "chat_key": "0001"
         }
       }
@@ -31,30 +31,23 @@
     "tag_info": {},
     "small_tag": [
       {
-        "tag_name": "ペルシャ",
-        "tag_info": {
-          "images_url": "http://13.231.69.127/zumimin/relux_data/001.png",
-          "chat_key": "0001"
-        }
-      },
-      {
-        "tag_name": "ラグドール",
-        "tag_info": {
-          "images_url": "http://13.231.69.127/zumimin/relux_data/001.png",
-          "chat_key": "0001"
-        }
-      },
-      {
-        "tag_name": "ベンガル",
-        "tag_info": {
-          "images_url": "http://13.231.69.127/zumimin/relux_data/001.png",
-          "chat_key": "0001"
-        }
-      },
-      {
         "tag_name": "スコティッシュフォールド",
         "tag_info": {
-          "images_url": "http://13.231.69.127/zumimin/relux_data/001.png",
+          "images_url": "http://13.231.69.127/zumimin/relux_data/scottish_fold.jpg",
+          "chat_key": "0001"
+        }
+      },
+      {
+        "tag_name": "マンチカン",
+        "tag_info": {
+          "images_url": "http://13.231.69.127/zumimin/relux_data/munchkin.jpg",
+          "chat_key": "0001"
+        }
+      },
+      {
+        "tag_name": "アメリカンショートヘア",
+        "tag_info": {
+          "images_url": "http://13.231.69.127/zumimin/relux_data/american_shorthair.jpg",
           "chat_key": "0001"
         }
       }

@@ -91,6 +91,18 @@ app.get('/api/v1/chat', (req, res) => {
   res.send(results);
 });
 
+// チャット 追加機能
+app.get('/api/v1/chat/add', (req, res) => {
+  let results = { state: false };
+  if (!_.isEmpty(req.query.chatKey) && !_.isEmpty(req.query.user) && !_.isEmpty(req.query.data)) {
+    if (req.query.chatKey?.toString() && req.query.user?.toString() && req.query.data?.toString()) {
+      const chat = new Chat();
+      const tmp = chat.addChat(req.query.chatKey?.toString(), req.query.user?.toString(), req.query.data?.toString());
+      if (tmp) results = tmp;
+    }
+  }
+  res.send(results);
+});
 
 // 3000番ポートでAPIサーバ起動
 app.listen(3000,
