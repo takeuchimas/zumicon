@@ -16,6 +16,7 @@ import { RecoilRoot } from "recoil";
 import { YellowBox } from "react-native";
 YellowBox.ignoreWarnings(["Setting a timer"]);
 const Stack = createStackNavigator();
+console.disableYellowBox = true;
 
 export default function App() {
   return (
