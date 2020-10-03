@@ -94,3 +94,8 @@ export const chatState = atom({
     }
   }
 });
+
+export const timeState = atom({
+  key: 'sample/time',
+  default: null
+});

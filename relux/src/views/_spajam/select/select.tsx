@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import {
   View,
   SafeAreaView,
@@ -15,6 +15,7 @@ import {
   tagApiState,
   tagState,
   chatState,
+  timeState
 } from "../../../atom/index";
 import API from "../../../api";
 
@@ -25,15 +26,15 @@ export default function Select({ navigation }: any) {
   const [tagLocal, setTagLocal] = useRecoilState(tagState);
   const [chat, setChat] = useRecoilState(chatState);
   const [user, setUser] = useRecoilState(userApiState);
+  const [time, setTime] = useRecoilState(timeState);
   const api = new API();
 
   useEffect(() => {
+    (async () => {
+      const tagData = await api.getTagData(tagLocal);
+      setTag(tagData);
+    })();
   }, [tag]);
-
-  setTimeout(async () => {
-    const tagData = await api.getTagData(tagLocal);
-    setTag(tagData);
-  }, 1000);
 
   return (
     <SafeAreaView style={styles.container}>

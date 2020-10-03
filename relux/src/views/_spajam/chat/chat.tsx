@@ -83,15 +83,14 @@ export default function Chat() {
         },
       ]);
     }
-
   }
 
   useEffect(() => {
-    update();
+    (async () => {
+      update();
+      setChat(await api.chatGet(chat.chat_key));
+    })();
   }, [chat]);
-  setTimeout(async () => {
-    setChat(await api.chatGet(chat.chat_key));
-  }, 1000);
 
   const onSend = useCallback((messages = []) => {
     api.addChat(chat.chat_key, user.user, messages[0].text);
