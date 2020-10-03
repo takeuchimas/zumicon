@@ -5,14 +5,9 @@ import express from 'express';
 import _ from 'lodash';
 import User, { UserInfoType } from './user';
 import Tag, { TagInfoType } from './tag';
-const app: express.Express = express();
+import Chat, { ChatInfoType } from './chat';
 
-// CORSの許可 TODO: いるかどうか動作確認が必要
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+const app: express.Express = express();
 
 // ReactでWebサイトを導入するなら
 app.use(express.static('./public'));
@@ -82,6 +77,20 @@ app.get('/api/v1/tag/search', (req, res) => {
   }
   res.send(results);
 });
+
+// チャット取得機能
+app.get('/api/v1/chat', (req, res) => {
+  let results: ChatInfoType | {} = {};
+  if (!_.isEmpty(req.query.chatKey)) {
+    if (req.query.chatKey?.toString()) {
+      const chat = new Chat();
+      const tmp = chat.getChat(req.query.chatKey?.toString());
+      if (tmp) results = tmp;
+    }
+  }
+  res.send(results);
+});
+
 
 // 3000番ポートでAPIサーバ起動
 app.listen(3000,

@@ -1,8 +1,8 @@
 /**
  * ユーザ情報返却
  */
-import { readFileSync, readSync } from 'fs';
-import _, { lte } from 'lodash';
+import { readFileSync } from 'fs';
+import _ from 'lodash';
 
 export type TagInfoType = {
   tag_name: string,
