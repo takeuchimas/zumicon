@@ -11,9 +11,13 @@ import { GiftedChat } from "react-native-gifted-chat";
 import _ from "lodash";
 
 import { useRecoilState } from "recoil";
-import { userApiState, tagApiState, tagState, chatState } from "../../../atom/index";
+import {
+  userApiState,
+  tagApiState,
+  tagState,
+  chatState,
+} from "../../../atom/index";
 import API from "../../../api";
-
 
 var { width, height, scale } = Dimensions.get("window");
 
@@ -28,7 +32,6 @@ export default function Chat() {
   const api = new API();
 
   useEffect(() => {
-
     if (chat.data.chat_history.length > 0) {
       // 存在する
       // 自分無し
@@ -66,7 +69,6 @@ export default function Chat() {
           ]);
         });
       }
-
     } else {
       setMessages([
         {
@@ -81,7 +83,6 @@ export default function Chat() {
         },
       ]);
     }
-
   }, []);
 
   const onSend = useCallback((messages = []) => {
