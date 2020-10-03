@@ -8,22 +8,25 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Text } from "react-native-elements";
-import API from "../../../api";
+
 import { useRecoilState } from "recoil";
-import { userApiState, tagApiState } from "../../../atom/index";
+import { userApiState, tagApiState, tagState, chatState } from "../../../atom/index";
+import API from "../../../api";
 
 var { width, height, scale } = Dimensions.get("window");
 
 export default function Select({ navigation }: any) {
   const [tag, setTag] = useRecoilState(tagApiState);
+  const [tagLocal, setTagLocal] = useRecoilState(tagState);
+  const [chat, setChat] = useRecoilState(chatState);
   const api = new API();
 
   useEffect(() => {
     (async () => {
-      const tagData = await api.getTagData("ねこ");
+      const tagData = await api.getTagData(tagLocal);
       setTag(tagData);
     })();
-  }, []);
+  }, [tag]);
 
   const source = { uri: "https://placeimg.com/140/140/any" };
 
@@ -37,7 +40,7 @@ export default function Select({ navigation }: any) {
           [{tag.tag_name}]
         </Text>
         <View style={{ flexDirection: "column" }}>
-          {tag.small_tag.map((tag, index) => {
+          {tag.small_tag ? tag.small_tag.map((tag, index) => {
             if (tag.tag_info.images_url) {
               return (
                 <TouchableOpacity
@@ -47,7 +50,11 @@ export default function Select({ navigation }: any) {
                     marginBottom: 4,
                     flexDirection: "row",
                   }}
-                  onPress={() => navigation.navigate("Chat")}
+                  onPress={async () => {
+                    // チャットデータ取得処理
+                    setChat(await api.chatGet(tag.tag_info.chat_key));
+                    navigation.navigate("Chat");
+                  }}
                 >
                   <Image
                     style={styles.stretch}
@@ -59,7 +66,7 @@ export default function Select({ navigation }: any) {
                 </TouchableOpacity>
               );
             }
-          })}
+          }) : <></>}
         </View>
       </View>
     </SafeAreaView>

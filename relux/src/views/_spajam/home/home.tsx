@@ -12,18 +12,25 @@ import { Text, Icon, ListItem, SearchBar } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 
 import { useRecoilState } from "recoil";
-import { userApiState, tagApiState } from "../../../atom/index";
+import { userApiState, tagApiState, tagState } from "../../../atom/index";
 import API from "../../../api";
 
 var { width, height, scale } = Dimensions.get("window");
 
 export default function Home({ navigation }: any) {
   const [user, setUser] = useRecoilState(userApiState);
+  const [tag, setTag] = useRecoilState(tagState);
   const [canSearch, setCanSearch] = useState(false);
   const [inputSearch, setInputSearch] = useState("");
+  const [oData, setOData] = useState([]);
 
   const api = new API();
-  // const oData = user;
+  useEffect(() => {
+    (async () => {
+      let tmpData = await api.getTagSp();
+      setOData(tmpData);
+    })();
+  }, []);
   const rData = user.tag_history;
 
   const handleSearch = () => {
@@ -49,13 +56,13 @@ export default function Home({ navigation }: any) {
           onCancel={() => setCanSearch(!canSearch)}
         />
       ) : (
-        <View />
-      )}
+          <View />
+        )}
       <Text h4 style={{ padding: 12 }}>
         おすすめ
       </Text>
       <FlatList
-        data={rData}
+        data={oData}
         renderItem={({ item }) => (
           <Animatable.View
             key={item}
@@ -74,9 +81,14 @@ export default function Home({ navigation }: any) {
             <Text
               h4
               style={{ color: "#EEE" }}
-              onPress={() => navigation.navigate("Select")}
+              onPress={() => {
+                // 大
+                setTag(item);
+                navigation.navigate("Select");
+              }
+              }
             >
-              {item}
+              {'#' + item}
             </Text>
           </Animatable.View>
         )}
@@ -105,9 +117,13 @@ export default function Home({ navigation }: any) {
             <Text
               h4
               style={{ color: "#EEE" }}
-              onPress={() => navigation.navigate("Select")}
+              onPress={() => {
+                // 小の分
+                navigation.navigate("Select")
+              }
+              }
             >
-              {item}
+              {'#' + item}
             </Text>
           </Animatable.View>
         )}

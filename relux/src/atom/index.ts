@@ -71,3 +71,26 @@ export const tagApiState = atom({
     ]
   }
 });
+
+// ホームで何押したか
+export const tagState = atom({
+  key: 'tag/state',
+  default: ''
+});
+
+// チャットデータ
+export const chatState = atom({
+  key: 'api/chat',
+  default: {
+    chat_key: "",
+    create_user: "",
+    settings: {
+      gobi: true,
+      gobi_string: ""
+    },
+    data: {
+      title: "",
+      chat_history: []
+    }
+  }
+});
