@@ -40,6 +40,11 @@ export default function Api() {
     setTag(tagData);
   }
 
+  const onClickTag2 = async () => {
+    const tagData = await api.getTagData(tagName);
+    setTag(tagData);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -64,6 +69,18 @@ export default function Api() {
         <Button
           title={'Tags Data GET'}
           onPress={onClickTag}
+        ></Button>
+        <Text>{tag.tag_name}</Text>
+        <Text>{tag.small_tag[0].tag_info.images_url}</Text>
+        <Text>----------------------------------------</Text>
+        <Text>ユーザのタグ履歴更新</Text>
+        <TextInput
+          value={tagName}
+          onChangeText={_handleTextChange2}
+        ></TextInput>
+        <Button
+          title={'ズミミン'}
+          onPress={onClickTag2}
         ></Button>
         <Text>{tag.tag_name}</Text>
         <Text>{tag.small_tag[0].tag_info.images_url}</Text>
