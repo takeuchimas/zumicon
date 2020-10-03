@@ -36,6 +36,19 @@ app.get('/api/v1/user', (req, res) => {
 });
 
 // ユーザ情報
+app.get('/api/v1/user/addHistory', (req, res) => {
+  let results = { state: false };
+  if (!_.isEmpty(req.query.user) && !_.isEmpty(req.query.tag)) {
+    if (req.query.user?.toString() && req.query.tag?.toString()) {
+      const user = new User();
+      const tmp = user.addHistory(req.query.user?.toString(), req.query.tag?.toString());
+      if (tmp) results = tmp;
+    }
+  }
+  res.send(results);
+});
+
+// タグ更新
 app.get('/api/v1/tag', (req, res) => {
   let results: TagInfoType | {} = {};
   if (!_.isEmpty(req.query.tag)) {
