@@ -11,9 +11,13 @@ import { GiftedChat } from "react-native-gifted-chat";
 import _ from "lodash";
 
 import { useRecoilState } from "recoil";
-import { userApiState, tagApiState, tagState, chatState } from "../../../atom/index";
+import {
+  userApiState,
+  tagApiState,
+  tagState,
+  chatState,
+} from "../../../atom/index";
 import API from "../../../api";
-
 
 var { width, height, scale } = Dimensions.get("window");
 
@@ -66,7 +70,6 @@ export default function Chat() {
         });
         setMessages(messages);
       }
-
     } else {
       setMessages([
         {

@@ -10,7 +10,12 @@ import {
 import { Text } from "react-native-elements";
 
 import { useRecoilState } from "recoil";
-import { userApiState, tagApiState, tagState, chatState } from "../../../atom/index";
+import {
+  userApiState,
+  tagApiState,
+  tagState,
+  chatState,
+} from "../../../atom/index";
 import API from "../../../api";
 
 var { width, height, scale } = Dimensions.get("window");
@@ -39,33 +44,37 @@ export default function Select({ navigation }: any) {
           [{tag.tag_name}]
         </Text>
         <View style={{ flexDirection: "column" }}>
-          {tag.small_tag ? tag.small_tag.map((tag, index) => {
-            if (tag.tag_info.images_url) {
-              return (
-                <TouchableOpacity
-                  key={index}
-                  style={{
-                    marginLeft: 8,
-                    marginBottom: 4,
-                    flexDirection: "row",
-                  }}
-                  onPress={async () => {
-                    // チャットデータ取得処理
-                    setChat(await api.chatGet(tag.tag_info.chat_key));
-                    navigation.navigate("Chat");
-                  }}
-                >
-                  <Image
-                    style={styles.stretch}
-                    source={{ uri: String(tag.tag_info.images_url) }}
-                  />
-                  <Text style={{ marginTop: 70, marginLeft: 12 }}>
-                    {tag.tag_name}
-                  </Text>
-                </TouchableOpacity>
-              );
-            }
-          }) : <></>}
+          {tag.small_tag ? (
+            tag.small_tag.map((tag, index) => {
+              if (tag.tag_info.images_url) {
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={{
+                      marginLeft: 8,
+                      marginBottom: 4,
+                      flexDirection: "row",
+                    }}
+                    onPress={async () => {
+                      // チャットデータ取得処理
+                      setChat(await api.chatGet(tag.tag_info.chat_key));
+                      navigation.navigate("Chat");
+                    }}
+                  >
+                    <Image
+                      style={styles.stretch}
+                      source={{ uri: String(tag.tag_info.images_url) }}
+                    />
+                    <Text style={{ marginTop: 70, marginLeft: 12 }}>
+                      {tag.tag_name}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              }
+            })
+          ) : (
+            <></>
+          )}
         </View>
       </View>
     </SafeAreaView>

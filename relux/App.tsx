@@ -13,7 +13,8 @@ import { Button } from "react-native-elements";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RecoilRoot } from "recoil";
-
+import { YellowBox } from "react-native";
+YellowBox.ignoreWarnings(["Setting a timer"]);
 const Stack = createStackNavigator();
 
 export default function App() {
