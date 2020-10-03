@@ -2,6 +2,8 @@
  * API 呼び出し共通処理
  */
 import axios from 'axios';
+import * as FileSystem from 'expo-file-system';
+import RNFS from 'react-native-fs';
 
 // ユーザ情報
 export type UserInfoType = {
@@ -46,5 +48,17 @@ export default class {
       console.log(e);
       return '';
     }
+  }
+  /////////////////
+  fetchImage = async (fileData: RequestInfo) => {
+    // const res: Response = await fetch(fileData);
+    // const b = await res.blob();
+    // console.log();
+    // API 呼び出し
+  }
+  postImage = async (fileUrl: string, osType: string) => {
+    // let b64data = await RNFS.readFile(fileUrl, 'base64');
+    // await RNFS.readFileAssets(fileUrl, 'base64');
+    // console.log(b64data);
   }
 }
