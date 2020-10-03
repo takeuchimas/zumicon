@@ -4,6 +4,7 @@
 import express from 'express';
 import _ from 'lodash';
 import User, { UserInfoType } from './user';
+import Tag, { TagInfoType } from './tag';
 const app: express.Express = express();
 
 // CORSの許可 TODO: いるかどうか動作確認が必要
@@ -28,6 +29,19 @@ app.get('/api/v1/user', (req, res) => {
     if (req.query.user?.toString()) {
       const user = new User();
       const tmp = user.getUser(req.query.user?.toString());
+      if (tmp) results = tmp;
+    }
+  }
+  res.send(results);
+});
+
+// ユーザ情報
+app.get('/api/v1/tag', (req, res) => {
+  let results: TagInfoType | {} = {};
+  if (!_.isEmpty(req.query.tag)) {
+    if (req.query.tag?.toString()) {
+      const tag = new Tag();
+      const tmp = tag.getTag(req.query.tag?.toString());
       if (tmp) results = tmp;
     }
   }

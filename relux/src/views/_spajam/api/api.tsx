@@ -2,13 +2,15 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, SafeAreaView, StyleSheet, TextInput, Button } from "react-native";
 
 import { useRecoilState } from "recoil";
-import { userApiState } from "../../../atom/index";
+import { userApiState, tagApiState } from "../../../atom/index";
 // API用
 import API, { } from '../../../api';
 
 export default function Api() {
   const [userName, setUserName] = useState('');
   const [user, setUser] = useRecoilState(userApiState);
+  const [tagName, setTagName] = useState('');
+  const [tag, setTag] = useRecoilState(tagApiState);
 
   const api = new API();
 
@@ -20,12 +22,23 @@ export default function Api() {
     }
   }
 
+  const _handleTextChange2 = (text: string) => {
+    if (text) {
+      setTagName(text)
+    } else {
+      setTagName('');
+    }
+  }
+
   const onClickUser = async () => {
     const userData = await api.getUserData(userName);
-    console.log('XXX', userData);
     setUser(userData);
   }
 
+  const onClickTag = async () => {
+    const tagData = await api.getTagData(tagName);
+    setTag(tagData);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,6 +56,17 @@ export default function Api() {
         ></Button>
         <Text>{JSON.stringify(user)}</Text>
         <Text>----------------------------------------</Text>
+        <Text>Tags</Text>
+        <TextInput
+          value={tagName}
+          onChangeText={_handleTextChange2}
+        ></TextInput>
+        <Button
+          title={'Tags Data GET'}
+          onPress={onClickTag}
+        ></Button>
+        <Text>{tag.tag_name}</Text>
+        <Text>{tag.small_tag[0].tag_info.images_url}</Text>
       </View>
     </SafeAreaView>
   );
