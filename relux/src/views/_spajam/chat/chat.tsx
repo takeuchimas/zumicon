@@ -27,21 +27,20 @@ export default function Chat() {
   const [user, setUser] = useRecoilState(userApiState);
   const api = new API();
 
-  useEffect(() => {
-
+  const update = () => {
+    if (!chat.data.chat_history) return;
     if (chat.data.chat_history.length > 0) {
       // 存在する
       // 自分無し
-      let conunt = 0;
+      let count = 0;
       _.each(chat.data.chat_history, (chatDetail) => {
-        if (chatDetail.user === user.user) conunt++;
+        if (chatDetail.user === user.user) count++;
       });
-      if (conunt <= 0) {
+      if (count <= 0) {
         setMessages([
           {
             _id: user.user,
             text: user.user_info.state,
-            createdAt: new Date(),
             user: {
               _id: user.user,
               name: user.user,
@@ -51,20 +50,21 @@ export default function Chat() {
         ]);
       } else {
         // 既存のデータを投稿する
-        _.each(chat.data.chat_history, (chatDetail) => {
-          setMessages([
+        let messages = [];
+        _.forEachRight(chat.data.chat_history, (chatDetail) => {
+          messages.push(
             {
               _id: chatDetail.number,
               text: chatDetail.data,
-              // createdAt: new Date(),
               user: {
                 _id: chatDetail.user,
                 name: chatDetail.user,
                 avatar: "https://placeimg.com/140/140/any",
               },
-            },
-          ]);
+            }
+          )
         });
+        setMessages(messages);
       }
 
     } else {
@@ -72,7 +72,6 @@ export default function Chat() {
         {
           _id: user.user,
           text: user.user_info.state,
-          createdAt: new Date(),
           user: {
             _id: user.user,
             name: user.user,
@@ -82,9 +81,17 @@ export default function Chat() {
       ]);
     }
 
-  }, []);
+  }
+
+  useEffect(() => {
+    update();
+  }, [chat]);
+  setTimeout(async () => {
+    setChat(await api.chatGet(chat.chat_key));
+  }, 1000);
 
   const onSend = useCallback((messages = []) => {
+    api.addChat(chat.chat_key, user.user, messages[0].text);
     setMessages((previousMessages) =>
       GiftedChat.append(previousMessages, messages)
     );

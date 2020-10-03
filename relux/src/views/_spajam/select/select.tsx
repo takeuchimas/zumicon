@@ -22,11 +22,12 @@ export default function Select({ navigation }: any) {
   const api = new API();
 
   useEffect(() => {
-    (async () => {
-      const tagData = await api.getTagData(tagLocal);
-      setTag(tagData);
-    })();
   }, [tag]);
+
+  setTimeout(async () => {
+    const tagData = await api.getTagData(tagLocal);
+    setTag(tagData);
+  }, 1000);
 
   return (
     <SafeAreaView style={styles.container}>

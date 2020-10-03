@@ -8,23 +8,7 @@
     },
     "data": {
       "title": "小さい炎 chat",
-      "chat_history": [
-        {
-          "number": 1,
-          "user": "ズミミン",
-          "data": "やっほーーーーー"
-        },
-        {
-          "number": 2,
-          "user": "ズミミン",
-          "data": "あああああああ"
-        },
-        {
-          "number": 3,
-          "user": "ズミミン",
-          "data": "iiiiiiii"
-        }
-      ]
+      "chat_history": []
     }
   },
   {
