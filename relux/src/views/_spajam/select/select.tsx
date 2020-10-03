@@ -24,6 +24,7 @@ export default function Select({ navigation }: any) {
   const [tag, setTag] = useRecoilState(tagApiState);
   const [tagLocal, setTagLocal] = useRecoilState(tagState);
   const [chat, setChat] = useRecoilState(chatState);
+  const [user, setUser] = useRecoilState(userApiState);
   const api = new API();
 
   useEffect(() => {
@@ -57,6 +58,7 @@ export default function Select({ navigation }: any) {
                     }}
                     onPress={async () => {
                       // チャットデータ取得処理
+                      await api.addHistoryData(user.user, tag.tag_name);
                       setChat(await api.chatGet(tag.tag_info.chat_key));
                       navigation.navigate("Chat");
                     }}
@@ -73,8 +75,8 @@ export default function Select({ navigation }: any) {
               }
             })
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </View>
       </View>
     </SafeAreaView>

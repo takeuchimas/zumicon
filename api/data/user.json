@@ -10,7 +10,8 @@
     },
     "tag_history": [
       "小さい炎",
-      "大きい炎"
+      "大きい炎",
+      "マンチカン"
     ],
     "bot": false
   },
@@ -30,13 +31,53 @@
   {
     "user": "しょう",
     "user_info": {
-      "state": "自己紹介です！私はボットです。",
+      "state": "沖縄人！！！",
       "create_tag": [
         "たき火"
       ]
     },
     "tag_history": [
       "青い炎"
+    ],
+    "bot": false
+  },
+  {
+    "user": "いさ",
+    "user_info": {
+      "state": "いさしんおう",
+      "create_tag": [
+        "たき火"
+      ]
+    },
+    "tag_history": [
+      "マンチカン"
+    ],
+    "bot": false
+  },
+  {
+    "user": "たけうち",
+    "user_info": {
+      "state": "レットブル LOVE",
+      "create_tag": [
+        "たき火"
+      ]
+    },
+    "tag_history": [
+      "青い炎"
+    ],
+    "bot": false
+  },
+  {
+    "user": "たなか",
+    "user_info": {
+      "state": "なまちゃ",
+      "create_tag": [
+        "たき火"
+      ]
+    },
+    "tag_history": [
+      "マンチカン",
+      "アメリカンショートヘア"
     ],
     "bot": false
   }

@@ -20,13 +20,105 @@
     },
     "data": {
       "title": "青い炎 chat",
+      "chat_history": []
+    }
+  },
+  {
+    "chat_key": "0003",
+    "create_user": "ズミミン",
+    "settings": {
+      "gobi": false,
+      "gobi_string": ""
+    },
+    "data": {
+      "title": "大きい炎 chat",
+      "chat_history": []
+    }
+  },
+  {
+    "chat_key": "0004",
+    "create_user": "ズミミン",
+    "settings": {
+      "gobi": false,
+      "gobi_string": ""
+    },
+    "data": {
+      "title": "スコティッシュフォールド chat",
+      "chat_history": []
+    }
+  },
+  {
+    "chat_key": "0005",
+    "create_user": "ズミミン",
+    "settings": {
+      "gobi": false,
+      "gobi_string": ""
+    },
+    "data": {
+      "title": "マンチカン chat",
       "chat_history": [
         {
           "number": 1,
           "user": "ズミミン",
-          "data": "やっほーーーーー"
+          "data": "よろしくお願いいたします。"
+        },
+        {
+          "number": 2,
+          "user": "しょう",
+          "data": "よろしくお願いいたします。"
+        },
+        {
+          "number": 3,
+          "user": "しょう",
+          "data": "マチカン可愛いですよね！！"
+        },
+        {
+          "number": 4,
+          "user": "いさ",
+          "data": "大阪でいい猫カフェを知ってますよ！"
+        },
+        {
+          "number": 5,
+          "user": "たなか",
+          "data": "マチカンはこの動画癒されます「https://youtu.be/Tg_wWTLQiCQ」"
         }
       ]
+    }
+  },
+  {
+    "chat_key": "0006",
+    "create_user": "ズミミン",
+    "settings": {
+      "gobi": false,
+      "gobi_string": ""
+    },
+    "data": {
+      "title": "アメリカンショートヘア chat",
+      "chat_history": []
+    }
+  },
+  {
+    "chat_key": "0007",
+    "create_user": "ズミミン",
+    "settings": {
+      "gobi": false,
+      "gobi_string": ""
+    },
+    "data": {
+      "title": "青い炎 chat",
+      "chat_history": []
+    }
+  },
+  {
+    "chat_key": "0008",
+    "create_user": "ズミミン",
+    "settings": {
+      "gobi": false,
+      "gobi_string": ""
+    },
+    "data": {
+      "title": "青い炎 chat",
+      "chat_history": []
     }
   }
 ]

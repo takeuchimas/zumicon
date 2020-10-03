@@ -14,14 +14,14 @@
         "tag_name": "青い炎",
         "tag_info": {
           "images_url": "http://13.231.69.127/zumimin/relux_data/002.png",
-          "chat_key": "0001"
+          "chat_key": "0002"
         }
       },
       {
         "tag_name": "大きい炎",
         "tag_info": {
           "images_url": "http://13.231.69.127/zumimin/relux_data/bonfire_big.jpg",
-          "chat_key": "0001"
+          "chat_key": "0003"
         }
       }
     ]
@@ -34,21 +34,21 @@
         "tag_name": "スコティッシュフォールド",
         "tag_info": {
           "images_url": "http://13.231.69.127/zumimin/relux_data/scottish_fold.jpg",
-          "chat_key": "0001"
+          "chat_key": "0004"
         }
       },
       {
         "tag_name": "マンチカン",
         "tag_info": {
           "images_url": "http://13.231.69.127/zumimin/relux_data/munchkin.jpg",
-          "chat_key": "0001"
+          "chat_key": "0005"
         }
       },
       {
         "tag_name": "アメリカンショートヘア",
         "tag_info": {
           "images_url": "http://13.231.69.127/zumimin/relux_data/american_shorthair.jpg",
-          "chat_key": "0001"
+          "chat_key": "0006"
         }
       }
     ]
