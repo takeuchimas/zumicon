@@ -35,7 +35,7 @@ app.get('/api/v1/user', (req, res) => {
   res.send(results);
 });
 
-// ユーザ情報
+// ユーザ情報 履歴 を更新
 app.get('/api/v1/user/addHistory', (req, res) => {
   let results = { state: false };
   if (!_.isEmpty(req.query.user) && !_.isEmpty(req.query.tag)) {
@@ -55,6 +55,28 @@ app.get('/api/v1/tag', (req, res) => {
     if (req.query.tag?.toString()) {
       const tag = new Tag();
       const tmp = tag.getTag(req.query.tag?.toString());
+      if (tmp) results = tmp;
+    }
+  }
+  res.send(results);
+});
+
+// おすすめタグ
+app.get('/api/v1/spTags', (req, res) => {
+  let results: string[] = [];
+  const tag = new Tag();
+  const tmp = tag.getSpTag();
+  if (tmp) results = tmp;
+  res.send(results);
+});
+
+// 検索タグ
+app.get('/api/v1/tag/search', (req, res) => {
+  let results: string[] = [];
+  if (!_.isEmpty(req.query.value)) {
+    if (req.query.value?.toString()) {
+      const tag = new Tag();
+      const tmp = tag.getSearchTag(req.query.value?.toString());
       if (tmp) results = tmp;
     }
   }
