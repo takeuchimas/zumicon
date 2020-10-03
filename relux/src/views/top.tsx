@@ -4,7 +4,7 @@ import { Text, Button, Input } from "react-native-elements";
 
 var { width, height, scale } = Dimensions.get("window");
 
-export default function Top() {
+export default function Top({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <Text h3 style={{ marginBottom: 50 }}>
@@ -15,7 +15,11 @@ export default function Top() {
         containerStyle={{ width: width - 100 }}
         placeholder="入力してください。"
       ></Input>
-      <Button type="outline" title={"スタート"}></Button>
+      <Button
+        type="outline"
+        title={"スタート"}
+        onPress={() => navigation.navigate("Home")}
+      ></Button>
     </SafeAreaView>
   );
 }

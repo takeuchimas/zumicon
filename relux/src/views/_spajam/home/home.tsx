@@ -13,7 +13,7 @@ import * as Animatable from "react-native-animatable";
 
 var { width, height, scale } = Dimensions.get("window");
 
-export default function Home() {
+export default function Home({ navigation }: any) {
   const sampleData = ["#aa", "#bb"];
 
   return (
@@ -30,7 +30,7 @@ export default function Home() {
               backgroundColor: "gray",
             }}
           >
-            <Text h4 onPress={() => Alert.alert("hello")}>
+            <Text h4 onPress={() => navigation.navigate("Select")}>
               {item}
             </Text>
           </Animatable.View>

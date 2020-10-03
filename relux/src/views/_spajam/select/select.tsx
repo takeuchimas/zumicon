@@ -14,13 +14,12 @@ import { userApiState, tagApiState } from "../../../atom/index";
 
 var { width, height, scale } = Dimensions.get("window");
 
-export default function Select() {
+export default function Select({ navigation }: any) {
   const [tag, setTag] = useRecoilState(tagApiState);
   const api = new API();
 
   useEffect(() => {
     (async () => {
-      console.log("-----------");
       const tagData = await api.getTagData("たき火");
       setTag(tagData);
     })();
@@ -44,7 +43,7 @@ export default function Select() {
                 <TouchableOpacity
                   key={index}
                   style={{ marginLeft: 12 }}
-                  onPress={() => console.log(tag.tag_name)}
+                  onPress={() => navigation.navigate("Chat")}
                 >
                   <Image
                     style={styles.stretch}
