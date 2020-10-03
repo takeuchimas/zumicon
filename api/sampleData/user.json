@@ -1,0 +1,19 @@
+[
+  {
+    "user": "ズミミン",
+    "user_info": "",
+    "tag_history": [
+      "焚火",
+      "まくら"
+    ],
+    "bot": false
+  },
+  {
+    "user": "たろう",
+    "user_info": "",
+    "tag_history": [
+      "焚火"
+    ],
+    "bot": true
+  }
+]
