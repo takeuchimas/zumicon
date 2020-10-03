@@ -24,17 +24,30 @@ export default function User() {
       <View style={{ flexDirection: "column" }}>
         <View style={{ flexDirection: "row", marginBottom: 6 }}>
           <Button
-            containerStyle={{ width: 120, marginRight: 6 }}
+            containerStyle={{
+              width: 120,
+              marginRight: 6,
+            }}
+            buttonStyle={{ backgroundColor: "#00A400" }}
             title="チャット編集"
           ></Button>
-          <Button containerStyle={{ width: 120 }} title="詳細情報"></Button>
+          <Button
+            containerStyle={{ width: 120 }}
+            title="詳細情報"
+            buttonStyle={{ backgroundColor: "#00A400" }}
+          ></Button>
         </View>
         <View style={{ flexDirection: "row" }}>
           <Button
             containerStyle={{ width: 120, marginRight: 6 }}
             title="更新"
+            buttonStyle={{ backgroundColor: "#00A400" }}
           ></Button>
-          <Button containerStyle={{ width: 120 }} title="キャンセル"></Button>
+          <Button
+            containerStyle={{ width: 120 }}
+            title="キャンセル"
+            buttonStyle={{ backgroundColor: "#00A400" }}
+          ></Button>
         </View>
       </View>
     </SafeAreaView>
