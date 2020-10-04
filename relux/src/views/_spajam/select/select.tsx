@@ -15,7 +15,7 @@ import {
   tagApiState,
   tagState,
   chatState,
-  timeState
+  timeState,
 } from "../../../atom/index";
 import API from "../../../api";
 
@@ -76,8 +76,8 @@ export default function Select({ navigation }: any) {
               }
             })
           ) : (
-              <></>
-            )}
+            <></>
+          )}
         </View>
       </View>
     </SafeAreaView>
