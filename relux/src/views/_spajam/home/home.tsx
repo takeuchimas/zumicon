@@ -83,7 +83,6 @@ export default function Home({ navigation }: any) {
               marginLeft: 24,
               marginRight: 24,
               backgroundColor: "#00A400",
-              borderBottomWidth: 1,
               borderBottomColor: "gray",
               borderRadius: 16,
             }}
@@ -120,7 +119,6 @@ export default function Home({ navigation }: any) {
               marginLeft: 24,
               marginRight: 24,
               backgroundColor: "#00A400",
-              borderBottomWidth: 1,
               borderBottomColor: "gray",
               borderRadius: 16,
             }}
