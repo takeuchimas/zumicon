@@ -44,7 +44,7 @@ export default function Home({ navigation }: any) {
     <SafeAreaView style={styles.container}>
       <Text
         h3
-        style={{ padding: 8, color: "gray" }}
+        style={{ padding: 8, color: "gray", display: "none" }}
         h3Style={{ textDecorationLine: "underline" }}
       >
         ホーム
@@ -65,7 +65,7 @@ export default function Home({ navigation }: any) {
       ) : (
           <View />
         )}
-      <Text h4 style={{ padding: 12, color: "gray" }}>
+      <Text h4 style={{ padding: 12, color: "gray", marginTop: 12 }}>
         おすすめ
       </Text>
       <FlatList
@@ -75,11 +75,13 @@ export default function Home({ navigation }: any) {
             key={item}
             animation="bounceIn"
             style={{
-              width: width,
+              width: width - 8,
               height: height / 16,
               paddingTop: 4,
               paddingLeft: 12,
-              marginBottom: 0.8,
+              marginBottom: 2,
+              marginLeft: 2,
+              marginRight: 2,
               backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
@@ -110,11 +112,13 @@ export default function Home({ navigation }: any) {
             key={item}
             animation="bounceIn"
             style={{
-              width: width,
+              width: width - 8,
               height: height / 16,
               paddingTop: 4,
               paddingLeft: 12,
-              marginBottom: 0.8,
+              marginBottom: 2,
+              marginLeft: 2,
+              marginRight: 2,
               backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
