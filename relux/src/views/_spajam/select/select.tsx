@@ -40,10 +40,10 @@ export default function Select({ navigation }: any) {
     <SafeAreaView style={styles.container}>
       <View>
         <Text h4 style={{ marginLeft: 8 }}>
-          あなたの好みを選択してください。
+          {tag.tag_name}
         </Text>
         <Text h4 style={{ marginLeft: 8 }}>
-          [{tag.tag_name}]
+          あなたの好みを選択してください。
         </Text>
         <View style={{ flexDirection: "column" }}>
           {tag.small_tag ? (
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     // height: 120,
     width: 160,
     height: 160,
+    borderRadius: 80,
     resizeMode: "stretch",
   },
 });
