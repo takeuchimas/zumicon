@@ -65,44 +65,54 @@ export default function Home({ navigation }: any) {
       ) : (
         <View />
       )}
-      <Text h4 style={{ padding: 12, color: "gray", marginTop: 12 }}>
-        おすすめ
-      </Text>
-      <FlatList
-        data={oData}
-        renderItem={({ item }) => (
-          <Animatable.View
-            key={item}
-            animation="bounceIn"
-            style={{
-              width: width - 8,
-              height: height / 16,
-              paddingTop: 4,
-              paddingLeft: 12,
-              marginBottom: 2,
-              marginLeft: 2,
-              marginRight: 2,
-              backgroundColor: "#00A400",
-              borderBottomWidth: 1,
-              borderBottomColor: "gray",
-              borderRadius: 16,
-            }}
-          >
-            <Text
-              h4
-              style={{ color: "#EEE" }}
-              onPress={() => {
-                setTag(item);
-                navigation.navigate("Select");
+      <View style={{ height: height / 2 - 45 }}>
+        <Text
+          h4
+          style={{
+            padding: 12,
+            color: "gray",
+            marginTop: 12,
+            marginBottom: 12,
+          }}
+        >
+          おすすめ
+        </Text>
+        <FlatList
+          data={oData}
+          renderItem={({ item }) => (
+            <Animatable.View
+              key={item}
+              animation="bounceIn"
+              style={{
+                width: width - 48,
+                height: height / 16,
+                paddingTop: 4,
+                paddingLeft: 12,
+                marginBottom: 2,
+                marginLeft: 24,
+                marginRight: 24,
+                backgroundColor: "#00A400",
+                borderBottomWidth: 1,
+                borderBottomColor: "gray",
+                borderRadius: 16,
               }}
             >
-              {"#" + item}
-            </Text>
-          </Animatable.View>
-        )}
-        keyExtractor={(item) => item}
-      ></FlatList>
-      <Text h4 style={{ padding: 12, color: "gray" }}>
+              <Text
+                h4
+                style={{ color: "#EEE" }}
+                onPress={() => {
+                  setTag(item);
+                  navigation.navigate("Select");
+                }}
+              >
+                {"#" + item}
+              </Text>
+            </Animatable.View>
+          )}
+          keyExtractor={(item) => item}
+        ></FlatList>
+      </View>
+      <Text h4 style={{ padding: 12, color: "gray", marginBottom: 12 }}>
         履歴
       </Text>
       <FlatList
@@ -112,13 +122,13 @@ export default function Home({ navigation }: any) {
             key={item}
             animation="bounceIn"
             style={{
-              width: width - 8,
+              width: width - 48,
               height: height / 16,
               paddingTop: 4,
               paddingLeft: 12,
               marginBottom: 2,
-              marginLeft: 2,
-              marginRight: 2,
+              marginLeft: 24,
+              marginRight: 24,
               backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",

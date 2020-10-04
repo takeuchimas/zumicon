@@ -42,7 +42,12 @@ export default function Top({ navigation }: any) {
           type="outline"
           title={"スタート"}
           titleStyle={{ color: "#EEE" }}
-          buttonStyle={{ backgroundColor: "#00A400" }}
+          buttonStyle={{
+            backgroundColor: "#00A400",
+            borderRadius: 24,
+            width: 100,
+            height: 50,
+          }}
           onPress={async () => {
             const userData = await api.getUserData(userName);
             setUser(userData);
