@@ -63,8 +63,8 @@ export default function Home({ navigation }: any) {
           onCancel={() => setCanSearch(!canSearch)}
         />
       ) : (
-        <View />
-      )}
+          <View />
+        )}
       <Text h4 style={{ padding: 12, color: "gray", marginTop: 12 }}>
         おすすめ
       </Text>

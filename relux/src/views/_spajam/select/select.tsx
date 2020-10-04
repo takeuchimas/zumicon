@@ -15,7 +15,7 @@ import {
   tagApiState,
   tagState,
   chatState,
-  timeState,
+  timeState
 } from "../../../atom/index";
 import API from "../../../api";
 
@@ -39,10 +39,10 @@ export default function Select({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text h4 style={{ marginLeft: 8 }}>
+        <Text h4 style={{ marginLeft: 8, color: "gray" }}>
           {tag.tag_name}
         </Text>
-        <Text h4 style={{ marginLeft: 8 }}>
+        <Text h4 style={{ marginLeft: 8, color: "gray" }}>
           あなたの好みを選択してください。
         </Text>
         <View style={{ flexDirection: "column" }}>
@@ -68,7 +68,7 @@ export default function Select({ navigation }: any) {
                       style={styles.stretch}
                       source={{ uri: String(tag.tag_info.images_url) }}
                     />
-                    <Text style={{ marginTop: 70, marginLeft: 12 }}>
+                    <Text style={{ marginTop: 70, marginLeft: 12, color: "gray" }}>
                       {tag.tag_name}
                     </Text>
                   </TouchableOpacity>
@@ -76,8 +76,8 @@ export default function Select({ navigation }: any) {
               }
             })
           ) : (
-            <></>
-          )}
+              <></>
+            )}
         </View>
       </View>
     </SafeAreaView>
