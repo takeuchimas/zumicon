@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { Text, Icon, ListItem, SearchBar } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
-
 import { useRecoilState } from "recoil";
 import { userApiState, tagApiState, tagState } from "../../../atom/index";
 import API from "../../../api";
@@ -33,13 +32,21 @@ export default function Home({ navigation }: any) {
   }, []);
   const rData = user.tag_history;
 
-  const handleSearch = () => {
-    console.log("search");
+  const handleSearch = (input: string) => {
+    setInputSearch(input);
+    let newArr = oData;
+    newArr = newArr.filter((tag) => tag.includes(input));
+    console.log(newArr);
+    setOData(newArr);
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text h3 style={{ padding: 8 }}>
+      <Text
+        h3
+        style={{ padding: 8 }}
+        h3Style={{ textDecorationLine: "underline" }}
+      >
         ホーム
       </Text>
       {canSearch ? (
@@ -51,13 +58,13 @@ export default function Home({ navigation }: any) {
           rightIconContainerStyle={{}}
           lightTheme={true}
           value={inputSearch}
-          onChangeText={handleSearch}
+          onChangeText={(input) => handleSearch(input)}
           onClear={() => setCanSearch(!canSearch)}
           onCancel={() => setCanSearch(!canSearch)}
         />
       ) : (
-          <View />
-        )}
+        <View />
+      )}
       <Text h4 style={{ padding: 12 }}>
         おすすめ
       </Text>
@@ -76,19 +83,18 @@ export default function Home({ navigation }: any) {
               backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
+              borderRadius: 16,
             }}
           >
             <Text
               h4
               style={{ color: "#EEE" }}
               onPress={() => {
-                // 大
                 setTag(item);
                 navigation.navigate("Select");
-              }
-              }
+              }}
             >
-              {'#' + item}
+              {"#" + item}
             </Text>
           </Animatable.View>
         )}
@@ -112,6 +118,7 @@ export default function Home({ navigation }: any) {
               backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
+              borderRadius: 16,
             }}
           >
             <Text
@@ -119,11 +126,10 @@ export default function Home({ navigation }: any) {
               style={{ color: "#EEE" }}
               onPress={() => {
                 // 小の分
-                navigation.navigate("Select")
-              }
-              }
+                navigation.navigate("Select");
+              }}
             >
-              {'#' + item}
+              {"#" + item}
             </Text>
           </Animatable.View>
         )}
