@@ -63,8 +63,8 @@ export default function Home({ navigation }: any) {
           onCancel={() => setCanSearch(!canSearch)}
         />
       ) : (
-          <View />
-        )}
+        <View />
+      )}
       <Text h4 style={{ padding: 12, color: "gray", marginTop: 12 }}>
         おすすめ
       </Text>
@@ -75,13 +75,13 @@ export default function Home({ navigation }: any) {
             key={item}
             animation="bounceIn"
             style={{
-              width: width - 8,
+              width: width - 48,
               height: height / 16,
               paddingTop: 4,
               paddingLeft: 12,
               marginBottom: 2,
-              marginLeft: 2,
-              marginRight: 2,
+              marginLeft: 24,
+              marginRight: 24,
               backgroundColor: "#00A400",
               borderBottomWidth: 1,
               borderBottomColor: "gray",
@@ -96,20 +96,12 @@ export default function Home({ navigation }: any) {
                 navigation.navigate("Select");
               }}
             >
-              <Text
-                h4
-                style={{ color: "#EEE" }}
-                onPress={() => {
-                  setTag(item);
-                  navigation.navigate("Select");
-                }}
-              >
-                {"#" + item}
-              </Text>
-            </Animatable.View>
-          )}
-          keyExtractor={(item) => item}
-        ></FlatList>
+              {"#" + item}
+            </Text>
+          </Animatable.View>
+        )}
+        keyExtractor={(item) => item}
+      ></FlatList>
       <Text h4 style={{ padding: 12, color: "gray", marginBottom: 12 }}>
         履歴
       </Text>
