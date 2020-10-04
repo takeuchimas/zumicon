@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
+  Image
 } from "react-native";
 import { Text, Button, Input } from "react-native-elements";
 import { useRecoilState } from "recoil";
@@ -27,9 +28,22 @@ export default function Top({ navigation }: any) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ marginTop: 100, alignItems: "center" }}>
-        <Text h1 style={{ marginBottom: 50, color: "gray" }}>
-          リラシェア
-        </Text>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+          <Image
+            style={{
+              flex: 1,
+              width: 100,
+              height: 100,
+            }}
+            source={require('../../assets/icon4.png')}
+          />
+          <Text style={{ position: 'absolute', fontSize: 20 }}>リラシェア</Text>
+        </View>
+        {/* <ImageBackground source={require('../../assets/icon4.png')} style={{ width: 100, height: 100 }}>
+          <Text h1 style={{ marginBottom: 50, color: "gray" }}>
+            リラシェア
+          </Text>
+        </ImageBackground> */}
         <Input
           label="ユーザー名"
           labelStyle={{ color: "gray" }}

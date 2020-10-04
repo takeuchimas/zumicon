@@ -41,6 +41,7 @@ export default function Chat() {
         if (chatDetail.user === user.user) count++;
       });
       if (count <= 0) {
+        api.addChat(chat.chat_key, user.user, user.user_info.state);
         setMessages([
           {
             _id: user.user,
@@ -71,6 +72,7 @@ export default function Chat() {
         setMessages(messages);
       }
     } else {
+      api.addChat(chat.chat_key, user.user, user.user_info.state);
       setMessages([
         {
           _id: user.user,
