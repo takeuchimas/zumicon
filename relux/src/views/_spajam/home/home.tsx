@@ -110,7 +110,6 @@ export default function Home({ navigation }: any) {
           )}
           keyExtractor={(item) => item}
         ></FlatList>
-      </View>
       <Text h4 style={{ padding: 12, color: "gray", marginBottom: 12 }}>
         履歴
       </Text>
