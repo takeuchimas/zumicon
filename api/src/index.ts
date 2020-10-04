@@ -104,6 +104,19 @@ app.get('/api/v1/chat/add', (req, res) => {
   res.send(results);
 });
 
+// 小 タグの検索機能
+app.get('/api/v1/smallTag/search', (req, res) => {
+  let results = [];
+  if (!_.isEmpty(req.query.tag)) {
+    if (req.query.tag?.toString()) {
+      const tag = new Tag();
+      const tmp = tag.searchTagBySmall(req.query.tag?.toString());
+      if (tmp) results = tmp;
+    }
+  }
+  res.send(results);
+});
+
 // 3000番ポートでAPIサーバ起動
 app.listen(3000,
   () => { }

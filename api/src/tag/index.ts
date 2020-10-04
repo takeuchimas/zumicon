@@ -32,6 +32,16 @@ export default class {
     console.log(results);
     return results;
   }
+  searchTagBySmall = (tag_key: string) => {
+    const tagList = JSON.parse(readFileSync(this.file, 'utf-8')) as TagDB;
+    const smallTags: any[] = [];
+    _.each(tagList, (tag: TagInfoType) => {
+      _.each(tag.small_tag, (smallTag) => {
+        if (smallTag.tag_name === tag_key) smallTags.push(smallTag);
+      })
+    });
+    return smallTags;
+  }
   getSpTag = () => {
     const tagList = JSON.parse(readFileSync(this.file2, 'utf-8')) as string[];
     console.log(tagList);

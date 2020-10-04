@@ -11,7 +11,7 @@ import {
 import { Text, Icon, ListItem, SearchBar } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 import { useRecoilState } from "recoil";
-import { userApiState, tagApiState, tagState } from "../../../atom/index";
+import { userApiState, tagApiState, tagState, chatState } from "../../../atom/index";
 import API from "../../../api";
 
 var { width, height, scale } = Dimensions.get("window");
@@ -19,6 +19,7 @@ var { width, height, scale } = Dimensions.get("window");
 export default function Home({ navigation }: any) {
   const [user, setUser] = useRecoilState(userApiState);
   const [tag, setTag] = useRecoilState(tagState);
+  const [chat, setChat] = useRecoilState(chatState);
   const [canSearch, setCanSearch] = useState(false);
   const [inputSearch, setInputSearch] = useState("");
   const [oData, setOData] = useState([]);
@@ -63,8 +64,8 @@ export default function Home({ navigation }: any) {
           onCancel={() => setCanSearch(!canSearch)}
         />
       ) : (
-        <View />
-      )}
+          <View />
+        )}
       <Text h4 style={{ padding: 12, color: "gray", marginTop: 12 }}>
         おすすめ
       </Text>
@@ -126,9 +127,15 @@ export default function Home({ navigation }: any) {
             <Text
               h4
               style={{ color: "#EEE" }}
-              onPress={() => {
-                // 小の分
-                navigation.navigate("Select");
+              onPress={async () => {
+                // 小のタグ
+                let smallTags = await api.searchSmallTag(item);
+                console.log(smallTags);
+                if (smallTags <= 0) return;
+                let chatTags = await api.chatGet(smallTags[0].tag_info.chat_key);
+                console.log(chatTags);
+                setChat(chatTags);
+                navigation.navigate("Chat");
               }}
             >
               {"#" + item}

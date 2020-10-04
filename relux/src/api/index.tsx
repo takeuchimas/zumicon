@@ -22,6 +22,7 @@ export const SearchTagURL = 'http://13.231.69.127:3000/api/v1/tag/search';
 export const AddTagHistoryURL = 'http://13.231.69.127:3000/api/v1/user/addHistory';
 export const ChatGetURL = 'http://13.231.69.127:3000/api/v1/chat';
 export const AddChatURL = 'http://13.231.69.127:3000/api/v1/chat/add';
+export const SearchSmallTagURL = 'http://13.231.69.127:3000/api/v1/smallTag/search';
 // NOTE: 何か追加するときはURLと返却値の型は一緒に定義しましょう
 
 export default class {
@@ -84,6 +85,15 @@ export default class {
     try {
       const response = await axios.get(`${AddChatURL}?chatKey=${chatKey}&user=${user}&data=${data}`);
       console.log(response.data);
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return '';
+    }
+  }
+  searchSmallTag = async (tag) => {
+    try {
+      const response = await axios.get(`${SearchSmallTagURL}?tag=${tag}`);
       return response.data;
     } catch (e) {
       console.log(e);
