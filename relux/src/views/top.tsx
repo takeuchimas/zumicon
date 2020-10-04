@@ -28,7 +28,7 @@ export default function Top({ navigation }: any) {
     <SafeAreaView style={styles.container}>
       <View style={{ marginTop: 100, alignItems: "center" }}>
         <Text h1 style={{ marginBottom: 50, color: "gray" }}>
-          .Re
+          リラシェア
         </Text>
         <Input
           label="ユーザー名"
