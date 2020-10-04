@@ -44,7 +44,7 @@ export default function Home({ navigation }: any) {
     <SafeAreaView style={styles.container}>
       <Text
         h3
-        style={{ padding: 8 }}
+        style={{ padding: 8, color: "gray" }}
         h3Style={{ textDecorationLine: "underline" }}
       >
         ホーム
@@ -63,9 +63,9 @@ export default function Home({ navigation }: any) {
           onCancel={() => setCanSearch(!canSearch)}
         />
       ) : (
-        <View />
-      )}
-      <Text h4 style={{ padding: 12 }}>
+          <View />
+        )}
+      <Text h4 style={{ padding: 12, color: "gray" }}>
         おすすめ
       </Text>
       <FlatList
@@ -100,7 +100,7 @@ export default function Home({ navigation }: any) {
         )}
         keyExtractor={(item) => item}
       ></FlatList>
-      <Text h4 style={{ padding: 12 }}>
+      <Text h4 style={{ padding: 12, color: "gray" }}>
         履歴
       </Text>
       <FlatList
